@@ -60,7 +60,7 @@ from sklearn.metrics import classification_report, cohen_kappa_score
 
 import tensorflow as tf
 from tensorflow.keras import regularizers
-import tensorflow_text
+#import tensorflow_text
 import tensorflow_hub as hub
 from tensorflow.keras.saving import register_keras_serializable
 

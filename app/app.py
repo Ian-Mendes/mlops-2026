@@ -54,12 +54,14 @@ async def lifespan(app: FastAPI):
     logger.info("Carregando modelos do W&B durante a inicialização do app...")
     try:
         model_urls_str = get_model_urls()
-        MODELS = services.load_all_classifiers(model_urls_str)
+        #MODELS = services.load_all_classifiers(model_urls_str)
+        MODELS = {}
         logger.info("Modelos do W&B carregados com sucesso.")
     except Exception as e:
         logger.error(f"Falha crítica ao carregar modelos do W&B: {str(e)}")
         logger.error(traceback.format_exc())
-        raise Exception(f"Falha crítica ao carregar modelos do W&B: {str(e)}")
+        #raise Exception(f"Falha crítica ao carregar modelos do W&B: {str(e)}")
+        print(f"W&B desabilitado temporariamente: {str(e)}")
     # This is the point where the app is ready to handle requests
     yield
     # Código para ser executado no shutdown (opcional)
